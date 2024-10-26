@@ -1,7 +1,7 @@
 [
     { "name": "notype Homepage", "url": "https://notype.ru/" },
     { "name": "notype Status", "url": "https://pub.notype.ru/" },
-    { "name": "Pub Pages", "url": "https://pub.notype.ru/pages/" }
-    { "name": "", "url": "" }
+    { "name": "Pub Pages", "url": "https://pub.notype.ru/pages/" },
+    { "name": "", "url": "" },
     { "name": "Slime 'n Crates Homepage", "url": "https://pub.notype.ru/pages/sac/" }
 ]
