@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slime 'n Crates - Official Homepage</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            background-size: cover;
+            font-family: Consolas, monospace;
+            color: white;
+        }
+
+        /* Контейнер для содержимого */
+        .container {
+            text-align: center;
+        }
+
+        .icon {
+            width: 250px;
+            height: 250px;
+            background: url('icon.png') no-repeat center center;
+            background-size: contain;
+            margin: 0 auto;
+        }
+
+        .title {
+            font-size: 50px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .description {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+
+        .buttons_description {
+            font-size: 25px;
+            margin-top: 50px;
+        }
+
+        .download-button {
+            width: 200px;
+            height: 50px;
+            margin-top: 5px;
+            background: url('button_up.png') no-repeat center center;
+            background-size: contain;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-button:hover {
+            background: url('button_down.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .download-button2 {
+            width: 200px;
+            height: 50px;
+            margin-top: 5px;
+            background: url('button_up.png') no-repeat center center;
+            background-size: contain;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-button2:hover {
+            background: url('button_down.png') no-repeat center center;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon"></div>
+        <div class="title">Slime 'n Crates</div>
+        <div class="description">A 16-bit leaning game.</div>
+        <div class="buttons_description">Release Build</div>
+        <button class="download-button" onclick="download()"></button>
+        <div class="buttons_description">Other Builds</div>
+        <button class="download-button2" onclick="download_other()"></button>
+    </div>
+
+    <script>
+        function download() {
+            window.location.href = 'latest.zip';
+        }
+
+        function download_other() {
+            window.location.href = 'other.zip';
+        }
+    </script>
+</body>
+</html>
