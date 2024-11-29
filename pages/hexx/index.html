@@ -1,242 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hexx - Кликер, флайбот.</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            background-color: #ffffff;
-            font-family: 'Arial', sans-serif;
-            color: #000;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Подключаем Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Подключаем шрифт Montserrat из Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000000;
+      font-family: 'Montserrat', sans-serif; /* Используем Montserrat */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
 
-        .navbar {
-            margin-bottom: 50px;
-            background-color: #f8f9fa;
-        }
+    /* Стиль для header */
+    header {
+      background-color: #0a0a0a;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: white;
+    }
 
-        .navbar-light .navbar-brand {
-            color: #000;
-        }
+    header img {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
 
-        .navbar-light .navbar-nav .nav-link {
-            color: #000;
-        }
+    header h1 {
+      font-size: 18px;
+      margin: 0;
+    }
 
-        .divider {
-            height: 1px;
-            background-color: rgba(0, 0, 0, 0.5);
-            margin: 50px 0;
-            opacity: 0.5;
-        }
+    .container {
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-        .hero-section {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+    .fire-icon {
+      font-size: 75px;
+      background: linear-gradient(180deg, #C74F4F, #331717);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 50px;
+      transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    }
 
-        .hero-section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
+    .fire-icon:hover {
+      transform: scale(1.25);  /* Увеличиваем кнопку */
+      filter: blur(5px);  /* Немного размываем */
+    }
 
-        .features {
-            margin-top: 20px;
-        }
+    .btn {
+      background-color: #050505;
+      border: none;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 15px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    }
 
-        .download-section {
-            margin: 40px auto;
-            text-align: center;
-            max-width: 480px;
-        }
+    .btn a {
+      color: #fff;
+      text-decoration: none;
+    }
 
-        .download-section img {
-            width: 480px;
-            height: 270px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
+    .btn:hover {
+      background-color: #C74F4F;
+      transform: scale(1.05);  /* Увеличиваем кнопку */
+      filter: blur(0.75px);  /* Немного размываем */
+    }
 
-        .download-section h5 {
-            margin-bottom: 15px;
-            width: 500px;
-        }
+    /* Стиль для footer */
+    footer {
+      background-color: rgba(0, 0, 0, 0.7); /* Затемненный фон */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 50%;
+      transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    }
 
-        .discord-logo {
-            text-align: center;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
+    footer:hover {
+      transform: scale(1.05);  /* Увеличиваем кнопку */
+      filter: blur(0.75px);  /* Немного размываем */
+    }
 
-        .discord-logo a {
-            color: #272727;
-            font-size: 2rem;
-            text-decoration: none;
-        }
+    footer img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px; /* Создаем отступ между иконкой и текстом */
+      border-radius: 100%;
+    }
 
-        .discord-logo a:hover {
-            color: #424242;
-        }
+    footer p {
+      font-size: 16px;
+      margin: 0;
+      margin-bottom: 15px;
+    }
 
-        .btn-primary {
-            background-color: #272727;
-            border-color: #868686;
-        }
-
-        .btn-primary:hover {
-            background-color: #424242;
-            border-color: #868686;
-        }
-
-        .btn-primary:active {
-            background-color: #424242 !important;
-            border-color: #868686 !important;
-        }
-
-        .btn-outline-primary {
-            border-color: #868686;
-            color: #000;
-        }
-
-        .btn-outline-primary:hover {
-            border-color: #868686;
-            color: #ffffff;
-            background-color: #424242;
-        }
-
-        .btn-outline-primary:active {
-            border-color: #868686 !important;
-            color: #ffffff !important;
-            background-color: #424242 !important;
-        }
-
-        /* Темная тема */
-        .dark-mode {
-            background-color: #191919;
-            color: #ffffff;
-        }
-
-        .dark-mode .divider {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .dark-mode .navbar {
-            background-color: #191919;
-        }
-
-        .dark-mode .navbar-light .navbar-brand {
-            color: #ffffff;
-        }
-
-        .dark-mode .navbar-light .navbar-nav .nav-link {
-            color: #ffffff;
-        }
-
-        .dark-mode .btn-primary {
-            background-color: #424242;
-            border-color: #575757;
-        }
-
-        .dark-mode .btn-primary:hover {
-            background-color: #575757;
-            border-color: #868686;
-        }
-
-        .dark-mode .btn-outline-primary {
-            border-color: #868686;
-            color: #ffffff;
-        }
-
-        .dark-mode .btn-outline-primary:hover {
-            background-color: #424242;
-            color: #ffffff;
-        }
-
-        .dark-mode .discord-logo a {
-            color: #ffffff;
-        }
-    </style>
+  </style>
+  <title>Styled Website</title>
 </head>
 <body>
-    <!-- Навигационная панель -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Hexx</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="d-grid gap-2 d-md-block">
-                <a href="hexx/Updater.exe" class="btn btn-primary">Скачать .exe (Апдейтер)</a>
-                <a href="https://drive.usercontent.google.com/download?id=1iU4KsRNl0CKRzUh8CISQggQmerR_4wy0&export=download&authuser=0&confirm=t&uuid=97768dcc-5edd-46db-b5aa-d5e18356d8e3&at=AENtkXbyJvecg99pVoQOsMG2Q0dv%3A1732386079859" class="btn btn-outline-primary">Скачать .zip (Портейбл)</a>
-                <a id="theme-toggle" class="btn btn-outline-primary">
-                    <i class="fas fa-moon"></i>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Основной контент -->
-    <div class="container hero-section">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-start">
-                <h1 class="fw-bold">Флайбот/кликер Hexx.</h1>
-                <h4 class="features">Улучшьте ваш способ летать с вашим другом по картам и по просторам DDNet-а.<br>Используйте эту программу как кликер и для других игр.</h4>
-            </div>
-            <div class="col-md-6">
-                <img src="https://pub.notype.ru/pages/hexx/screenshot1.png" alt="Кактус с DDNet Флайботом.">
-            </div>
-        </div>
+  <div class="container">
+    <!-- Иконка огня с градиентом -->
+    <div class="fire-icon">
+      <i class="fas fa-fire"></i>
     </div>
-
-    <div class="divider"></div>
-
-    <!-- Секция скачивания -->
-    <div class="container download-section">
-        <div class="col-md-6">
-            <img src="https://pub.notype.ru/pages/hexx/screenshot2.png" alt="Изображение секции скачивания.">
-        </div>
-        <div class="col-md-6 text-center text-md-start">
-            <h5 class="features">После скачивания апдейтера, перенесите его в свободную папку. Он скачает и распакует нужные файлы.</h5>
-        </div>
-        <div class="d-grid gap-2 d-md-block">
-            <a href="hexx/Updater.exe" class="btn btn-primary">Скачать .exe (Апдейтер)</a>
-            <a href="https://drive.usercontent.google.com/download?id=1iU4KsRNl0CKRzUh8CISQggQmerR_4wy0&export=download&authuser=0&confirm=t&uuid=97768dcc-5edd-46db-b5aa-d5e18356d8e3&at=AENtkXbyJvecg99pVoQOsMG2Q0dv%3A1732386079859" class="btn btn-outline-primary">Скачать .zip (Портейбл)</a>
-        </div>
+    
+    <!-- Кнопки -->
+    <div>
+      <button class="btn"><a href="https://pub.notype.ru/pages/hexx/Updater.exe">Updater.exe (Новый)</a></button>
+      <button class="btn"><a href="https://drive.usercontent.google.com/download?id=1iU4KsRNl0CKRzUh8CISQggQmerR_4wy0&export=download&authuser=0&confirm=t&uuid=98afa24c-1d1e-4d84-8fe1-ad86e717fd27&at=AENtkXbyDM558NuPb8GZCOAmPv1l%3A1732911065594">Hexx.exe (Портейбл)</a></button>
     </div>
+  </div>
 
-    <div class="divider"></div>
-
-    <div class="container discord-logo">
-        <a href="https://discord.gg/3B3xMJc75E" target="_blank" title="Зайти к нам в Discord">
-            <i class="fab fa-discord"></i>
-        </a>
-    </div>
-
-    <!-- Подключение Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        // Функция для переключения темы
-        const themeToggleButton = document.getElementById('theme-toggle');
-        const discordLogo = document.querySelector('.discord-logo a');
-        themeToggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            
-            // Изменить иконку в зависимости от темы
-            themeToggleButton.innerHTML = isDarkMode 
-                ? '<i class="fas fa-sun"></i>' 
-                : '<i class="fas fa-moon"></i>';
-
-            // Сменить цвет логотипа Discord
-            discordLogo.style.color = isDarkMode ? '#ffffff' : '#272727';
-        });
-    </script>
+  <!-- Footer с затемненной иконкой и текстом -->
+  <footer>
+    <img src="icon.png" alt="icon"> <!-- Иконка 20x20 -->
+    <p>Сайт by (devnull). Копирование и редактирование - пошел $#&*!.</p> <!-- Текст -->
+  </footer>
 </body>
 </html>
